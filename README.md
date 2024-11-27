@@ -5,6 +5,9 @@ This project uses Terraform to deploy an AWS infrastructure that includes:
 - An S3 bucket for static file hosting.
 - An EKS cluster for running containerized applications.
 
+## Live Demo
+[E-Commerce App Live Demo] (http://a4c6a2a6a2e924ac6be8a455b7b774dc-870651409.us-east-1.elb.amazonaws.com)
+
 ## Prerequisites
 
 Ensure you have these tools installed:

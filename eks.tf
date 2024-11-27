@@ -49,6 +49,10 @@ module "eks" {
   ]
   vpc_id          = aws_vpc.main.id
 
+  cluster_endpoint_private_access = true
+  cluster_endpoint_public_access  = true
+
+
   self_managed_node_groups = {
     ecommerce_nodes = {
       desired_capacity = 2
@@ -65,4 +69,38 @@ module "eks" {
     Environment = "Dev"
     Name        = "EcommerceEKS"
   }
+}
+
+
+provider "kubernetes" {
+  host                   = module.eks.cluster_endpoint
+  token                  = data.aws_eks_cluster_auth.cluster.token
+  cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
+}
+
+data "aws_eks_cluster" "cluster" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_name
+}
+
+resource "kubernetes_config_map" "aws_auth" {
+  metadata {
+    name      = "aws-auth"
+    namespace = "kube-system"
+  }
+
+  data = {
+    mapRoles = yamlencode([
+      {
+        rolearn  = "arn:aws:iam::711387129389:role/eks-bootstrap-role"
+        username = "eks-bootstrap-role"
+        groups   = ["system:masters"]
+      }
+    ])
+  }
+
+  depends_on = [module.eks]
 }
