@@ -30,12 +30,18 @@ Before using this project, make sure you have the following tools installed:
 To deploy this infrastructure, follow these steps:
 
 1. **Clone this repository**:
+```bash
     git clone https://github.com/<your-username>/aws-eks-terraform-infra.git
     cd aws-eks-terraform-infra
+```
 2. **Initialize Terraform**:
+```bash
     terraform init
+```
 3. **Deploy the Infrastructure**:
+```bash
     terraform apply
+```
 4. **Access Output**: After the deployment, Terraform will output important information like the S3 bucket URL and the EKS cluster endpoint
 
 ## Planned Improvements
