@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the E-Commerce App</h1>
-    <p>This is a sample static website hosted on AWS EC2.</p>
+
+    <header>
+        <h1>Welcome to the E-Commerce App</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>Featured Products</h2>
+            <div class="product" id="product1">
+                <img src="https://via.placeholder.com/150" alt="Product 1">
+                <p>Product 1 - $19.99</p>
+                <button onclick="addToCart('Product 1', 19.99)">Add to Cart</button>
+            </div>
+            <div class="product" id="product2">
+                <img src="https://via.placeholder.com/150" alt="Product 2">
+                <p>Product 2 - $29.99</p>
+                <button onclick="addToCart('Product 2', 29.99)">Add to Cart</button>
+            </div>
+            <div class="product" id="product3">
+                <img src="https://via.placeholder.com/150" alt="Product 3">
+                <p>Product 3 - $39.99</p>
+                <button onclick="addToCart('Product 3', 39.99)">Add to Cart</button>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cartItems">
+                <!-- Cart items will appear here -->
+            </ul>
+            <p>Total: $<span id="totalPrice">0.00</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-Commerce App. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
