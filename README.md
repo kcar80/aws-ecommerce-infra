@@ -29,7 +29,7 @@ Ensure you have these tools installed:
 ```
 4. **Access Output**: Note the outputs (e.g., S3 bucket URL, EKS cluster endpoint).
 
-## Future Plamns
+## Future Plans
 
 - Add CI/CD for deployments.
 - Deploy sample containerized applications on the EKS cluster.
